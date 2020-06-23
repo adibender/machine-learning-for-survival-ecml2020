@@ -2,8 +2,8 @@
 This is the code repository for "A General Machine Learning Framework for Survival Analysis" published at ECML 2020
 
 The analyses in the publication were based on a prototype implementation of
-Piece-wise-exponential models (PEMs) using XGBoost in R. This prototyp implementation
-is available as an R package `pem.xgb` and must be installed to run the
+Piece-wise-exponential models (PEMs) using XGBoost in R. This prototype implementation
+is available as an R package **`pem.xgb`** and must be installed to run the
 benchmarks. The package is available from a [separate repository](https://github.com/adibender/pem.xgb). If you are only interested in how to make XGBoost
 estimate PEMs head over to that repository. Note that the package is a prototype and should not be used in production. In the near future we are planing to integrate the general framework, including GBT (PEM) into **`mlr3`** via **`mlr3proba`** and
 **`mlr3pipelines`**.
