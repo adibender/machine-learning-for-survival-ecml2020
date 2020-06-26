@@ -1,10 +1,12 @@
 library(batchtools)
 
+dir.create("instances")
+
 reg <- loadRegistry("output/benchmark-registry")
 ids <- findExperiments(prob.name = "benchmark")
 pars <- unwrap(getJobPars(ids)) %>% as_tibble()
 ids_df_unique <- pars %>%
-  filter(data_name != "icu", data_name != "synthetic") %>%
+  filter(data_name != "synthetic") %>%
   filter(algorithm == "pam_xgb")
 ids_data_list <- split(ids_df_unique, f = ids_df_unique$data_name)
 names(ids_data_list) <- purrr::map(ids_data_list, ~.x$data_name[1])

@@ -30,6 +30,10 @@ devtools::install_github("adibender/pammtools", ref = "ecml")# Data trafo
   iteration of the benchmark
   - `algorithms.R`: contains wrapper functions for the different algorithms that
   - are compared to each other
+  - `deep_c_index.R`: an R version of the C-index as implemented in the DeepHit package
+  - `calling_deephit.R`: an R version of the DeepHit package wrapped in a random search function
+  - `benchmark-deephit.R`: contains the code to perform the random search for DeepHit 
+  on all benchmark data sets
   - `benchmark.R`: contains the code that will performs the benchmark experiments
   and is based on package `batchtools`.
   - `bench-time.R`: benchmark w.r.t. different strategies w.r.t. cut-point selection (scaling experiment)
@@ -49,3 +53,8 @@ folder **`simulation`**
 
 - Code for the aggregation and evaluation of benchmark studies are contained in folder **`paper`**
   - `results.R`: reads in the results from different experiments, combines results, creates raw tables (manually processed for publication)
+
+## Usage of DeepHit wrapper in R
+
+In order to use DeepHit in R, clone the [DeepHit repository](https://github.com/chl8856/DeepHit) into the benchmark folder. The `calling_deephit.R` wrapper that calls DeepHit from R needs a suitable Python environment (Python 2.7) and will import the functions `class_DeepHit.py`, `import_data.py` and
+`utils_eval.py`.

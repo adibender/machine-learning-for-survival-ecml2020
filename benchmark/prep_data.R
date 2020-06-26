@@ -33,22 +33,13 @@ tumor <- tumor %>%
     status = status,
   )
 
-## customer churn
-churn <- readr::read_csv("../datasets/WA_Fn-UseC_-Telco-Customer-Churn.csv")
-churn <- churn %>%
-  dplyr::mutate_if(is.character, as.factor) %>%
-  select(-customerID, -TotalCharges, -MonthlyCharges, -Contract) %>%
-  rename(time = tenure, status = Churn) %>%
-  mutate(status = 1L * (status == "Yes")) %>%
-  filter(time != 0)
-churn <- as.data.frame(churn)
-
 
 
 ## DeepHit data sets
 # Metabric (single event), available from DeepHit Repo
-mb <- readr::read_csv("../datasets/cleaned_features_final.csv")
-mb_outcome <- readr::read_csv("../datasets/label.csv") %>%
+# https://github.com/chl8856/DeepHit
+mb <- readr::read_csv("https://raw.githubusercontent.com/chl8856/DeepHit/master/sample%20data/METABRIC/cleaned_features_final.csv")
+mb_outcome <- readr::read_csv("https://raw.githubusercontent.com/chl8856/DeepHit/master/sample%20data/METABRIC/label.csv") %>%
   dplyr::rename(time = event_time, status = label)
 mb <- cbind(mb_outcome, mb)
 
